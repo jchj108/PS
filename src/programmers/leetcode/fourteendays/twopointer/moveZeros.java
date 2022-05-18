@@ -7,25 +7,20 @@ public class moveZeros {
 
         moveZeroes(nums);
     }
-
     public static void moveZeroes(int[] nums) {
-        int count = 0 ,n =nums.length,i =0 ;
+        // moves Zero to right without making new instance
+        int count = 0, n = nums.length;
 
-        for( i =0;i< n;i++){
-            if(nums[i] != 0){
+        for(int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
                 int temp = nums[count];
                 nums[count] = nums[i];
-                nums[i] = temp ;
+                nums[i] = temp;
                 count++;
             }
-
         }
-
-        for(int num : nums) {
-            System.out.println(num);
+        for(int i : nums) {
+            System.out.println(i);
         }
-
-        return;
-
     }
 }

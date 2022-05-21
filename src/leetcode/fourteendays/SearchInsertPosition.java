@@ -1,4 +1,4 @@
-package programmers.leetcode.fourteendays;
+package leetcode.fourteendays;
 
 public class SearchInsertPosition {
 

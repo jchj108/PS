@@ -1,4 +1,4 @@
-package programmers.leetcode.fourteendays;
+package leetcode.fourteendays;
 
 import java.util.Arrays;
 

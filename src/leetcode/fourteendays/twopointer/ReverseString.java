@@ -1,4 +1,4 @@
-package programmers.leetcode.fourteendays.twopointer;
+package leetcode.fourteendays.twopointer;
 
 public class ReverseString {
     public static void main(String[] args) {

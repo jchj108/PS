@@ -1,4 +1,4 @@
-package programmers.leetcode.fourteendays.twopointer;
+package leetcode.fourteendays.twopointer;
 
 public class MiddleOfTheLinkedList {
 

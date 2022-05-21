@@ -1,4 +1,4 @@
-package programmers.leetcode.fourteendays.twopointer.medium;
+package leetcode.fourteendays.twopointer.medium;
 
 public class RotateArray {
     public static void rotate(int[] nums, int k) {

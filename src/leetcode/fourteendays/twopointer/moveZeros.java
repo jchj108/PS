@@ -1,4 +1,4 @@
-package programmers.leetcode.fourteendays.twopointer;
+package leetcode.fourteendays.twopointer;
 
 public class moveZeros {
     public static void main(String[] args) {

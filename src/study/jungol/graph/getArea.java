@@ -2,7 +2,6 @@ package study.jungol.graph;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.sql.Array;
 import java.util.*;
 
 public class getArea {
@@ -12,6 +11,7 @@ public class getArea {
     static int[] dy = {0, 1, 0, -1};
     static boolean[][] visited;
     static int cnt;
+    static int count;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -44,10 +44,11 @@ public class getArea {
                     cnt = 0;
                     dfs(i, j);
                     result.add(cnt);
+                    count++;
                 }
             }
         }
-
+        System.out.println(count);
         Collections.sort(result);
         for(int i : result) {
             System.out.print(i + " ");
@@ -66,7 +67,6 @@ public class getArea {
             if(!map[nextY][nextX] && !visited[nextY][nextX]) {
                 dfs(nextY, nextX);
             }
-
         }
     }
 }

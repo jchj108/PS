@@ -1,12 +1,19 @@
-package study.dfs;
+package study.jungol.graph;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class getArea {
-
     static int m, n, k;
+    static boolean[][] map;
+    static int[] dx = {-1, 0, 1, 0};
+    static int[] dy = {0, 1, 0, -1};
+    static boolean[][] visited;
+    static int cnt;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,8 +22,8 @@ public class getArea {
         m = Integer.parseInt(st.nextToken());
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
+        map = new boolean[m][n];
 
-        boolean[][] map = new boolean[n][m];
         for (int l = 0; l < k; l++) {
             st = new StringTokenizer(br.readLine());
             int x1 = Integer.parseInt(st.nextToken());
@@ -29,12 +36,31 @@ public class getArea {
                 }
             }
         }
-        for(boolean[] bool : map) {
-            for(boolean boo : bool) {
-                System.out.print(boo);
+
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(!map[i][j]) {
+                    dfs(i, j);
+                }
             }
-            System.out.println();
+        }
+        System.out.println(cnt);
+    }
+    private static void dfs(int y, int x) {
+
+        map[y][x] = true;
+        cnt = cnt+1;
+
+        for(int i = 0; i < 4; i++) {
+           int nextX = dx[i];
+           int nextY = dy[i];
+            if (nextX < 0 || nextY < 0 || nextX >= n || m <= nextY) {
+                continue;
+            }
+            if (map[nextX][nextY] || map[y][x]) {
+                continue;
+            }
+            dfs(nextY, nextX);
         }
     }
-
 }

@@ -3,9 +3,7 @@ package study.jungol.graph;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class getArea {
     static int m, n, k;
@@ -23,6 +21,7 @@ public class getArea {
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
         map = new boolean[m][n];
+        visited = new boolean[m][n];
 
         for (int l = 0; l < k; l++) {
             st = new StringTokenizer(br.readLine());
@@ -37,30 +36,37 @@ public class getArea {
             }
         }
 
+        List<Integer> result = new ArrayList<>();
+
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
-                if(!map[i][j]) {
+                if(!map[i][j] && !visited[i][j]) {
+                    cnt = 0;
                     dfs(i, j);
+                    result.add(cnt);
                 }
             }
         }
-        System.out.println(cnt);
+
+        Collections.sort(result);
+        for(int i : result) {
+            System.out.print(i + " ");
+        }
     }
     private static void dfs(int y, int x) {
-
-        map[y][x] = true;
-        cnt = cnt+1;
+        visited[y][x] = true;
+        cnt++;
 
         for(int i = 0; i < 4; i++) {
-           int nextX = dx[i];
-           int nextY = dy[i];
+           int nextX = x + dx[i];
+           int nextY = y + dy[i];
             if (nextX < 0 || nextY < 0 || nextX >= n || m <= nextY) {
                 continue;
             }
-            if (map[nextX][nextY] || map[y][x]) {
-                continue;
+            if(!map[nextY][nextX] && !visited[nextY][nextX]) {
+                dfs(nextY, nextX);
             }
-            dfs(nextY, nextX);
+
         }
     }
 }

@@ -12,15 +12,13 @@ public class LongestPalindrome {
     public static int longestPalindrome(String s) {
 
         int[] count = new int[128];
-        for (char c: s.toCharArray())
-            count[c]++;
-
-        int ans = 0;
-        for (int v: count) {
-            ans += v / 2 * 2;
-            if (ans % 2 == 0 && v % 2 == 1)
-                ans++;
+        int length = 0;
+        for(char c: s.toCharArray()){
+            if(++count[c] == 2){
+                length += 2;
+                count[c] = 0;
+            }
         }
-        return ans;
+        return length == s.length() ? length: length+1;
     }
 }

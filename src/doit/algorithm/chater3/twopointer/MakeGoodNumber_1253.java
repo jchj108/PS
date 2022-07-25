@@ -37,7 +37,7 @@ public class MakeGoodNumber_1253 {
 
             while (l < r) {
                 if (nums[l] + nums[r] == k) {
-                    if (nums[l] != nums[r]) {
+                    if (nums[l] != nums[r]) { // 두 수가 서로 다른 수인지 체크
                         cnt++;
                         break;
                     }

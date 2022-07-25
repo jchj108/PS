@@ -33,11 +33,15 @@ public class MakeGoodNumber_1253 {
         for (int i = 0; i < N; i++) {
             int k = nums[i];
             int l = 0;
-            int r = nums.length - 1;
+            int r = i - 1;
 
             while (l < r) {
                 if (nums[l] + nums[r] == k) {
-                    if (nums[l] != nums[r]) { // 두 수가 서로 다른 수인지 체크
+                    if (l == i) {
+                        l++;
+                    } else if(r == i) {
+                        r--;
+                    } else {
                         cnt++;
                         break;
                     }

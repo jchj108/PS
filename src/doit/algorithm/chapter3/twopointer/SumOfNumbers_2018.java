@@ -1,4 +1,4 @@
-package doit.algorithm.chater3.twopointer;
+package doit.algorithm.chapter3.twopointer;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -12,9 +12,7 @@ public class DNAPassword {
     static int p;
     static int[] arr = new int[4];
 
-
     public static void main(String[] args) throws IOException {
-
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
